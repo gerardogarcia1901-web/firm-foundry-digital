@@ -212,7 +212,7 @@ export default function ServiciosPage() {
             <p className="ornament mb-6">¿No encuentras lo que buscas?</p>
             <h2 className="font-display text-4xl md:text-6xl">Cada caso es único. <em className="text-gradient-gold">Hablemos del tuyo.</em></h2>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
-              
+              <a
                 href="https://wa.me/50378900000" target="_blank" rel="noopener"
                 className="group inline-flex items-center gap-3 btn-gold px-9 py-5 text-xs font-semibold uppercase tracking-[0.22em]"
               >
