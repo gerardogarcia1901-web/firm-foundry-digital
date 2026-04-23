@@ -34,24 +34,15 @@ export function Header() {
           </div>
         </div>
       </div>
-
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "top-0 bg-navy-deep/95 backdrop-blur-xl border-b border-gold/20 py-3 shadow-elegant"
-            : "top-10 bg-transparent py-5"
-        }`}
+        className={`fixed inset-x-0 z-50 transition-all duration-500 ${scrolled ? "top-0 bg-navy-deep/95 backdrop-blur-xl border-b border-gold/20 py-3 shadow-elegant" : "top-10 bg-transparent py-5"}`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
           <Link to="/" className="flex items-center gap-3 group">
-            <motion.div
-              whileHover={{ rotate: 12, scale: 1.08 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="flex h-11 w-11 items-center justify-center rounded-sm bg-gradient-gold border border-gold/40 shadow-gold"
-            >
+            <motion.div whileHover={{ rotate: 12, scale: 1.08 }} transition={{ type: "spring", stiffness: 300 }} className="flex h-11 w-11 items-center justify-center rounded-sm bg-gradient-gold border border-gold/40 shadow-gold">
               <Scale className="h-5 w-5 text-navy-deep" />
             </motion.div>
             <div className="leading-tight">
@@ -59,60 +50,30 @@ export function Header() {
               <div className="text-[10px] uppercase tracking-[0.3em] text-gold/80">Bufete Jurídico · 2002</div>
             </div>
           </Link>
-
           <nav className="hidden md:flex items-center gap-10">
             {nav.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={`text-xs uppercase tracking-[0.22em] transition-colors link-underline ${location.pathname === item.to ? "text-gold" : "text-white/80 hover:text-gold"}`}
-              >
+              <Link key={item.to} to={item.to} className={`text-xs uppercase tracking-[0.22em] transition-colors link-underline ${location.pathname === item.to ? "text-gold" : "text-white/80 hover:text-gold"}`}>
                 {item.label}
               </Link>
             ))}
-            
-              href="https://wa.me/50378900000?text=Hola%2C%20quisiera%20agendar%20una%20consulta"
-              target="_blank"
-              rel="noopener"
-              className="ml-2 inline-flex items-center justify-center btn-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.22em]"
-            >
+            <a href="https://wa.me/50378900000?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener" className="ml-2 inline-flex items-center justify-center btn-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.22em]">
               Agendar consulta
             </a>
           </nav>
-
-          <button
-            aria-label="Menu"
-            className="md:hidden text-white"
-            onClick={() => setOpen((v) => !v)}
-          >
+          <button aria-label="Menu" className="md:hidden text-white" onClick={() => setOpen((v) => !v)}>
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-
         <AnimatePresence>
           {open && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="md:hidden overflow-hidden bg-navy-deep border-t border-gold/15"
-            >
+            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} className="md:hidden overflow-hidden bg-navy-deep border-t border-gold/15">
               <div className="px-6 py-6 flex flex-col gap-5">
                 {nav.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    onClick={() => setOpen(false)}
-                    className={`text-sm uppercase tracking-[0.22em] ${location.pathname === item.to ? "text-gold" : "text-white/80"}`}
-                  >
+                  <Link key={item.to} to={item.to} onClick={() => setOpen(false)} className={`text-sm uppercase tracking-[0.22em] ${location.pathname === item.to ? "text-gold" : "text-white/80"}`}>
                     {item.label}
                   </Link>
                 ))}
-                
-                  href="https://wa.me/50378900000"
-                  className="inline-flex items-center justify-center btn-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em]"
-                >
+                <a href="https://wa.me/50378900000" className="inline-flex items-center justify-center btn-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em]">
                   Agendar consulta
                 </a>
               </div>
